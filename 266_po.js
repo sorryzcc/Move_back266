@@ -8,7 +8,7 @@ const Systempath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/Re
 const Opspath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本运营配置表@OpsEvenTranslationConfiguration.xlsx`;
 const Battlepath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本战斗配置表@BattleTranslationConfiguration.xlsx`;
 
-// 读取表格并提取 ToolRemark 中的负责人信息
+// 读取表格并提取 ToolRemark 中的所有负责人信息
 function getOwnerFromExcel(filePath) {
   // 读取 Excel 文件
   const workbook = xlsx.readFile(filePath);
@@ -29,6 +29,9 @@ function getOwnerFromExcel(filePath) {
     return null;
   }
 
+  // 存储所有负责人信息
+  const allOwners = new Set(); // 使用 Set 避免重复
+
   // 遍历数据，找到 ToolRemark 列中的值
   for (let i = 1; i < data.length; i++) {
     let toolRemarkValue = data[i][toolRemarkIndex];
@@ -36,15 +39,16 @@ function getOwnerFromExcel(filePath) {
     toolRemarkValue = typeof toolRemarkValue === "string" ? toolRemarkValue : "";
 
     if (toolRemarkValue.includes("负责人")) {
-      // 提取负责人信息
-      const ownerMatch = toolRemarkValue.match(/负责人[:：]\s*([\w,]+)/);
-      if (ownerMatch) {
-        return ownerMatch[1].split(",").map((o) => o.trim()); // 返回负责人列表
+      // 提取负责人信息（支持多个负责人）
+      const ownerMatches = toolRemarkValue.matchAll(/负责人[:：]\s*([\w,]+)/g);
+      for (const match of ownerMatches) {
+        const owners = match[1].split(",").map((o) => o.trim());
+        owners.forEach((owner) => allOwners.add(owner)); // 添加到 Set 中
       }
     }
   }
 
-  return null; // 如果没有找到负责人信息，返回 null
+  return allOwners.size > 0 ? Array.from(allOwners) : null; // 返回所有负责人列表
 }
 
 // 主函数：生成表格与负责人的映射关系
