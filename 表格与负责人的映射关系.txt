@@ -1,5 +1,5 @@
-表格与负责人的映射关系： {
-  Map: [
+ {
+  "Map": [
     'shawnhou',       'pikaxli',
     'qualialiu',      'bowensheng',
     'tenhaozhang',    'yuxinye_ex',
@@ -9,7 +9,7 @@
     'roshanchen',     'mingnianxiao',
     'mengtingpan_ex', 'smudgeyan'
   ],
-  Total: [
+  "Total": [
     'Meowthyang',     'qualialiu',
     'shawnhou',       'roshanchen',
     'yuyuanwu',       'v_rzzrzhang',
@@ -26,7 +26,7 @@
     'dwarfmitianex',  'anduyin',
     'meowthyang',     'bowensheng'
   ],
-  System: [
+  "System": [
     'v_rzzrzhang',    'v_cyycyin',
     'v_dchyang',      'yuyuanwu',
     'Meowthyang',     'anduyinliu',
@@ -41,7 +41,7 @@
     'seasonhu',       'Seasonhu',
     'vanyawan'
   ],
-  Ops: [
+  "Ops": [
     'vanyawan',   'v_xiboluo',   'goldenjiang',
     'timpang',    'haopengli',   'debywu',
     'v_fzjefeng', 'v_xiboiluo',  'v_yibowang',
@@ -54,5 +54,5 @@
     'winxzhang',  'ilockzheng',  'tedzwli',
     'Xiaoqiu'
   ],
-  Battle: [ 'bowensheng' ]
+  "Battle": [ 'bowensheng' ]
 }
