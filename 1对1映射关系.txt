@@ -1,0 +1,48 @@
+{
+  "Map": [
+    "pikaxli",
+    "houbojiang",
+    "siweiqiu_ex",
+    "xiaojungong",
+    "shinroshen",
+    "khuali",
+    "mingnianxiao",
+    "smudgeyan"
+  ],
+  "Total": [
+    "xiaojungong_ex",
+    "dwarfmitianex"
+  ],
+  "System": [
+    "leoushiyama",
+    "amosxie",
+    "gengarzhang",
+    "lgxu",
+    "rzzrzhang",
+    "seasonhu",
+    "Seasonhu"
+  ],
+  "Ops": [
+    "v_xiboiluo",
+    "iangu",
+    "connieywang",
+    "golden",
+    "timapng",
+    "chereye",
+    "blackboluo",
+    "vanyanwan",
+    "amberyzpeng",
+    "vanya",
+    "hettyhuang",
+    "xiaoyuqi",
+    "hetty",
+    "chengping",
+    "caozhili",
+    "xiaoqiu",
+    "winxzhang",
+    "ilockzheng",
+    "tedzwli",
+    "Xiaoqiu"
+  ],
+  "Battle": []
+}
