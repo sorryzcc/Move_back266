@@ -8,7 +8,7 @@ const Systempath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/Re
 const Opspath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本运营配置表@OpsEvenTranslationConfiguration.xlsx`;
 const Battlepath = `D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本战斗配置表@BattleTranslationConfiguration.xlsx`;
 
-// 读取表格并提取负责人信息的函数
+// 读取表格并提取 ToolRemark 中的负责人信息
 function getOwnerFromExcel(filePath) {
   // 读取 Excel 文件
   const workbook = xlsx.readFile(filePath);
@@ -18,11 +18,29 @@ function getOwnerFromExcel(filePath) {
   // 将工作表转换为 JSON 格式
   const data = xlsx.utils.sheet_to_json(worksheet, { header: 1 });
 
-  // 假设负责人的信息在 "负责人" 列后面
-  for (const row of data) {
-    if (row.includes("负责人")) {
-      const ownerIndex = row.indexOf("负责人") + 1; // 负责人后面的值
-      return row[ownerIndex]; // 返回负责人名字
+  // 找到 ToolRemark 列的索引
+  let toolRemarkIndex = -1;
+  if (data.length > 0) {
+    toolRemarkIndex = data[0].indexOf("ToolRemark"); // 假设第一行是表头
+  }
+
+  if (toolRemarkIndex === -1) {
+    console.warn(`未找到 ToolRemark 列`);
+    return null;
+  }
+
+  // 遍历数据，找到 ToolRemark 列中的值
+  for (let i = 1; i < data.length; i++) {
+    let toolRemarkValue = data[i][toolRemarkIndex];
+    // 确保 toolRemarkValue 是字符串类型
+    toolRemarkValue = typeof toolRemarkValue === "string" ? toolRemarkValue : "";
+
+    if (toolRemarkValue.includes("负责人")) {
+      // 提取负责人信息
+      const ownerMatch = toolRemarkValue.match(/负责人[:：]\s*([\w,]+)/);
+      if (ownerMatch) {
+        return ownerMatch[1].split(",").map((o) => o.trim()); // 返回负责人列表
+      }
     }
   }
 
@@ -44,7 +62,7 @@ async function generateOwnerMapping() {
   for (const { name, path } of paths) {
     const owner = getOwnerFromExcel(path);
     if (owner) {
-      ownerMapping[name] = owner.split(",").map((o) => o.trim()); // 处理多个负责人
+      ownerMapping[name] = owner; // 存储负责人信息
     } else {
       console.warn(`未找到 ${name} 的负责人信息`);
     }
