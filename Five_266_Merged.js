@@ -7,6 +7,8 @@ const Systempath = 'D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/Re
 const Opspath = 'D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本运营配置表@OpsEvenTranslationConfiguration.xlsx';
 const Battlepath = 'D:/PM_Mainland_Trunk_20230321_r552586/PMGameClient/Tables/ResXlsx/266.国内文本战斗配置表@BattleTranslationConfiguration.xlsx';
 
+const mainlandpath = './filtered_mainland_textApplicationForm2_250321.xlsm';
+
 // 读取 Excel 文件
 function readExcel(filePath, fileName) {
     const workbook = XLSX.readFile(filePath);
@@ -21,6 +23,8 @@ const TotalData = readExcel(Totalpath, "TotalTranslationConfiguration");
 const SystemData = readExcel(Systempath, "SystemTranslationConfiguration");
 const OpsData = readExcel(Opspath, "OpsEvenTranslationConfiguration");
 const BattleData = readExcel(Battlepath, "BattleTranslationConfiguration");
+
+const mainlandData = readExcel(mainlandpath, "mainlandpath");
 
 // 合并数据
 let combinedData = [...TotalData, ...MapData, ...SystemData, ...OpsData, ...BattleData];
