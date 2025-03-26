@@ -1,0 +1,60 @@
+表格与负责人的映射关系： {
+  Map: [
+    'shawnhou',       'pikaxli',
+    'qualialiu',      'bowensheng',
+    'tenhaozhang',    'yuxinye_ex',
+    'houbojiang',     'powali',
+    'siweiqiu_ex',    'xiaojungong',
+    'shinroshen',     'khuali',
+    'roshanchen',     'mingnianxiao',
+    'mengtingpan_ex', 'smudgeyan'
+  ],
+  Total: [
+    'Meowthyang',     'qualialiu',
+    'shawnhou',       'roshanchen',
+    'yuyuanwu',       'v_rzzrzhang',
+    'v_cyycyin',      'doriscyang',
+    'debywu',         'anduyinliu',
+    'vanyawan',       'v_yibowang',
+    'powali',         'dylannnwang',
+    'timpang',        'bbdxcong',
+    'v_xiboluo',      'tenhaozhang',
+    'v_fzjefeng',     'yuxinye_ex',
+    'xiaojungong_ex', 'v_dchyang',
+    'goldenjiang',    'haopengli',
+    'thesvenchen',    'mengdameng',
+    'dwarfmitianex',  'anduyin',
+    'meowthyang',     'bowensheng'
+  ],
+  System: [
+    'v_rzzrzhang',    'v_cyycyin',
+    'v_dchyang',      'yuyuanwu',
+    'Meowthyang',     'anduyinliu',
+    'meowthyang',     'leoushiyama',
+    'dylannnwang',    'amosxie',
+    'mengtingpan_ex', 'mengdameng',
+    'bbdxcong',       'powali',
+    'gengarzhang',    'lgxu',
+    'anduyin',        'thesvenchen',
+    'rzzrzhang',      'cherwinyu',
+    'shawnhou',       'enzohlin',
+    'seasonhu',       'Seasonhu',
+    'vanyawan'
+  ],
+  Ops: [
+    'vanyawan',   'v_xiboluo',   'goldenjiang',
+    'timpang',    'haopengli',   'debywu',
+    'v_fzjefeng', 'v_xiboiluo',  'v_yibowang',
+    'iangu',      'connieywang', 'golden',
+    'timapng',    'chereye',     'blackboluo',
+    'cherwinyu',  'vanyanwan',   'amberyzpeng',
+    'doriscyang', 'vanya',       'hettyhuang',
+    'xiaoyuqi',   'hetty',       'chengping',
+    'caozhili',   'xiaoqiu',     'enzohlin',
+    'winxzhang',  'ilockzheng',  'tedzwli',
+    'Xiaoqiu'
+  ],
+  Battle: [ 'bowensheng' ]
+}
+
+读取"表格与负责人的映射关系.txt",找到1个人名对应一个表格的，比如表格与负责人的1对1的映射关系，比如pikaxli,最后一个人名应该只会出现在一个表格内，重复的就留空吧，比如Battle:[]
